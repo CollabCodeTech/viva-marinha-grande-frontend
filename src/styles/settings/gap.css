@@ -3,4 +3,13 @@
   --gap-min: 10px;
   --gap-med: 15px;
   --gap-max: 20px;
+  --gap-double-max: 40px;
+
+  --gap-container: 40px;
+}
+
+@media (max-width: 940px) {
+  :root {
+    --gap-container: 20px;
+  }
 }
