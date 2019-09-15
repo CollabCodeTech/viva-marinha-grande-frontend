@@ -1,14 +1,10 @@
-import React from "react";
-import "./App.css";
-import CardStore from "./components/CardStore"
+import React from 'react'
+import ShowStores from './containers/ShowStores'
 
 const App = () => (
   <main className="app">
-    <CardStore />
-    <CardStore />
-    <CardStore />
-    <CardStore />
+    <ShowStores />
   </main>
-);
+)
 
-export default App;
+export default App

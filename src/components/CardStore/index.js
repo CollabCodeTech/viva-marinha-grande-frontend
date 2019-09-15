@@ -1,26 +1,24 @@
-import React from "react";
-import { Card, Photo, Value, Star, Title, WrapperStart } from "./styles";
+import React from 'react'
+import { Card, Photo, Value, Star, Title, WrapperStart } from './styles'
 
 import coffee from '../../img/coffee.png'
 
-const CardStore = () => (
+const CardStore = ({ store: { src, value, stars, title } }) => (
   <Card>
     <dd>
       <Photo src={coffee} alt="Placeholder" />
     </dd>
 
-    <Value>€€€</Value>
+    <Value>{[...Array(value)].map(() => '€')}</Value>
 
     <WrapperStart>
-      <Star />
-      <Star />
-      <Star />
-      <Star />
-      <Star />
+      {[...Array(stars)].map((item, key) => (
+        <Star key={key} />
+      ))}
     </WrapperStart>
 
-    <Title>Cafeteria D’Arte</Title>
+    <Title>{title}</Title>
   </Card>
 )
 
-export default CardStore;
+export default CardStore
