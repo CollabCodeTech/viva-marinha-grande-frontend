@@ -5,7 +5,6 @@ import MainHeader from './containers/MainHeader'
 const App = () => (
   <main className="app">
     <MainHeader />
-    <ShowStores />
   </main>
 )
 

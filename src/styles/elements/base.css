@@ -1,3 +1,7 @@
+html,
+body {
+  height: 100vh;
+}
 body {
   background-color: var(--color-titanium);
   font-family: 'Roboto', sans-serif;

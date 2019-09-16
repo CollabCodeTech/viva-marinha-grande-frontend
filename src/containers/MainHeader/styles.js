@@ -56,7 +56,7 @@ export const Header = styled.header`
   @media(max-width: 830px) {
     height: 110px;
     position: relative;
-    align-items: flex-start
+    align-items: flex-start;
 
     & ${Logo} {
       height: auto;
@@ -79,7 +79,27 @@ export const Header = styled.header`
     }
   }
 
-  @media(max-width: 560px) {
-   
+  @media(max-width: 540px) {
+    position: static;
+    flex-wrap: wrap;
+
+    & ${Form} {
+      display: block;
+    }
+
+    & ${Input} {
+      position: static;
+      transform: none;
+      margin-right: 0;
+    }
+
+    & ${Button} {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100vw;
+      max-width: 100vw;
+      box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.2);
+    }
   }
 `

@@ -8,4 +8,9 @@ export const Button = styled(Link).attrs(props => ({ to: props.to }))`
   font-size: var(--size-med);
   font-weight: bold;
   text-decoration: none;
+  transition: opacity 100ms linear;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `

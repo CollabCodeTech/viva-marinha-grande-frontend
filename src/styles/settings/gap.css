@@ -13,3 +13,9 @@
     --gap-container: 20px;
   }
 }
+
+@media (max-width: 540px) {
+  :root {
+    --gap-container: 10px;
+  }
+}
