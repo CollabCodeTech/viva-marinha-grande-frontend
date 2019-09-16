@@ -23,6 +23,7 @@ export const Item = styled.li`
     border: 1px solid ${({active}) => active ? 'var(--color-strawberry)' : 'var(--color-tamarind)'};
     margin-right: var(--gap-max);
     background-color: ${({active}) => active ? 'var(--color-strawberry)' : 'var(--color-coconut)'};
+    transition: background-color 100ms linear;
   }
 `
 

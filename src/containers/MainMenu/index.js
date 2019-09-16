@@ -24,12 +24,16 @@ const MainMenu = () => {
     }
   ])
 
+  const toggleActive = (id) => {
+    setServices(old => old.map(service => service.id === id ? {...service, active: !service.active} : service))
+  }
+
   return (
     <Navigation>
       <Title>Guia de Serviços</Title>
 
-      <MainList items={services} />
-    </Navigation>
+      <MainList items={services} onClick={toggleActive} />
+    </Navigation> 
   )
 };
 
