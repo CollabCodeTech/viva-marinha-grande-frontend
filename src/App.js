@@ -1,10 +1,11 @@
 import React from 'react'
-import ShowStores from './containers/ShowStores'
 import MainHeader from './containers/MainHeader'
+import MainMenu from './containers/MainMenu'
 
 const App = () => (
   <main className="app">
     <MainHeader />
+    <MainMenu />
   </main>
 )
 

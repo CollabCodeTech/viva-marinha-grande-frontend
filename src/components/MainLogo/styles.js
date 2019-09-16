@@ -9,4 +9,5 @@ export const Title = styled.figcaption`
   font-size: var(--size-max);
   font-weight: bold;
   color: var(--color-strawberry);
+  letter-spacing: 1.4px;
 `

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Logo, Image, Title } from '../../components/MainLogo/styles'
+import { Logo, Image } from '../../components/MainLogo/styles'
 import { Button } from '../../components/MainButton/styles'
 import { Form, Input } from '../../components/MainSearch/styles'
 import { container } from '../../styles/tools/base'
@@ -10,6 +10,7 @@ export const Header = styled.header`
   align-items: center;
   height: 60px;
   padding-top: var(--gap-max);
+  margin-bottom: var(--gap-double-max);
   ${container}
 
   & > ${Logo} {
