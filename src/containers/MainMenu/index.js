@@ -25,6 +25,9 @@ const MainMenu = () => {
     )
   }
 
+  const clearAllActive = () =>
+    setCategories(old => old.map(category => ({ ...category, active: false })))
+
   return (
     <Navigation>
       <Title>Guia de Serviços</Title>
@@ -32,7 +35,7 @@ const MainMenu = () => {
       <MainList items={categories} onClick={toggleActive} />
 
       <Actions>
-        <ClearButton>Limpar</ClearButton>
+        <ClearButton onClick={clearAllActive}>Limpar</ClearButton>
       </Actions>
     </Navigation>
   )
