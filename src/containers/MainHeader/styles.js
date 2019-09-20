@@ -2,16 +2,15 @@ import styled from 'styled-components'
 import { Logo, Image } from '../../components/MainLogo/styles'
 import { Button } from '../../components/MainButton/styles'
 import { Form, Input } from '../../components/MainSearch/styles'
-import { container } from '../../styles/tools/base'
 
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
-  padding-top: var(--gap-max);
+  height: var(--size-header);
+  padding: var(--gap-max) var(--gap-container) 0;
   margin-bottom: var(--gap-double-max);
-  ${container}
+  background-color: var(--color-titanium);
 
   & > ${Logo} {
     display: flex;
@@ -46,7 +45,7 @@ export const Header = styled.header`
     padding: 0 var(--gap-max);
   }
 
-  @media(max-width: 1100px) {
+  @media (max-width: 1100px) {
     height: 50px;
 
     & ${Input} {
@@ -54,7 +53,7 @@ export const Header = styled.header`
     }
   }
 
-  @media(max-width: 830px) {
+  @media (max-width: 830px) {
     height: 110px;
     position: relative;
     align-items: flex-start;
@@ -80,7 +79,7 @@ export const Header = styled.header`
     }
   }
 
-  @media(max-width: 540px) {
+  @media (max-width: 540px) {
     position: static;
     flex-wrap: wrap;
 

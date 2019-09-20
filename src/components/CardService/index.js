@@ -3,7 +3,7 @@ import { Card, Photo, Value, Star, Title, WrapperStart } from './styles'
 
 import coffee from '../../img/coffee.png'
 
-const CardStore = ({ store: { src, value, stars, title } }) => (
+const CardService = ({ store: { value, stars, title } }) => (
   <Card>
     <dd>
       <Photo src={coffee} alt="Placeholder" />
@@ -21,4 +21,4 @@ const CardStore = ({ store: { src, value, stars, title } }) => (
   </Card>
 )
 
-export default CardStore
+export default CardService

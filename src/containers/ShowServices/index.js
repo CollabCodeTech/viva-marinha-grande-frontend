@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Wrapper } from './styles'
-import CardStore from '../../components/CardStore'
+import CardService from '../../components/CardService'
 
-const ShowStores = () => {
+const ShowServices = () => {
   const [stores, setStores] = useState([])
 
   const getStores = async () => {
-    const { data } = await axios.get('http://localhost:5000/service/resume')
+    const { data } = await axios.get('http://localhost:5000/service/overview')
     setStores(data)
   }
 
@@ -18,10 +18,10 @@ const ShowStores = () => {
   return (
     <Wrapper>
       {stores.map(store => (
-        <CardStore key={store._id} store={store} />
+        <CardService key={store._id} store={store} />
       ))}
     </Wrapper>
   )
 }
 
-export default ShowStores
+export default ShowServices
