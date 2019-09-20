@@ -5,7 +5,6 @@ import Home from './pages/Home'
 
 import './styles/index.css'
 
-
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
