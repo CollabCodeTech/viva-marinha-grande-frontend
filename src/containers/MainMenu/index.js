@@ -1,23 +1,28 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
-import { Navigation, Title } from './styles';
-import MainList from '../../components/MainList';
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import { Navigation, Title, Actions } from './styles'
+import MainList from '../../components/MainList'
+import ClearButton from '../../components/ClearButton'
 
 const MainMenu = () => {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState([])
 
   useEffect(() => {
     const featchData = async () => {
-      const res = await axios.get('http://localhost:5000/category');
+      const res = await axios.get('http://localhost:5000/category')
 
-      setCategories(() => res.data);
+      setCategories(() => res.data)
     }
-    
-    featchData();
-  }, []);
 
-  const toggleActive = (id) => {
-    setCategories(old => old.map(service => service._id === id ? {...service, active: !service.active} : service))
+    featchData()
+  }, [])
+
+  const toggleActive = id => {
+    setCategories(old =>
+      old.map(service =>
+        service._id === id ? { ...service, active: !service.active } : service
+      )
+    )
   }
 
   return (
@@ -25,8 +30,12 @@ const MainMenu = () => {
       <Title>Guia de Serviços</Title>
 
       <MainList items={categories} onClick={toggleActive} />
-    </Navigation> 
-  )
-};
 
-export default MainMenu;
+      <Actions>
+        <ClearButton>Limpar</ClearButton>
+      </Actions>
+    </Navigation>
+  )
+}
+
+export default MainMenu
