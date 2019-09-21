@@ -37,15 +37,28 @@ export const Header = styled.header`
 
   & > ${Stars} {
     margin-left: auto;
+    padding-left: 0;
   }
 
   & > ${Value} {
     width: 100%;
     margin-bottom: var(--gap-max);
+    padding-left: 0;
   }
 
   @media (max-width: 1090px) {
     width: 100%;
+  }
+
+  @media (max-width: 420px) {
+    & > ${Title} {
+      margin-bottom: var(--gap-min);
+    }
+
+    & > ${Stars} {
+      width: 100%;
+      margin-left: 0;
+    }
   }
 `
 
