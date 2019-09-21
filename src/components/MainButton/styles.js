@@ -9,6 +9,7 @@ export const Button = styled(Link).attrs(props => ({ to: props.to }))`
   font-weight: bold;
   text-decoration: none;
   transition: opacity 100ms linear;
+  text-transform: uppercase;
 
   &:hover {
     opacity: 0.8;

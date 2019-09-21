@@ -16,7 +16,11 @@ export const Wrapper = styled.section`
     background-image: linear-gradient(var(--color-titanium) 50%, transparent);
   }
 
-  & > ${Card} {
+  & > a {
+    text-decoration: none;
+  }
+
+  & ${Card} {
     margin-left: var(--gap-max);
     margin-bottom: var(--gap-double-max);
   }

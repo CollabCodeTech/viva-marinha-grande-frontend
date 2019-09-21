@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import star from '../../img/star.png'
-
 export const Card = styled.dl`
   box-sizing: border-box;
   width: 300px;
@@ -13,21 +11,9 @@ export const Photo = styled.img`
   margin-bottom: var(--gap-min);
 `
 
-export const Value = styled.dl`
-  float: right;
-  color: var(--color-kiwi);
-  padding: 0 var(--gap-min);
-`
-
-export const WrapperStart = styled.dl`
-  padding: 0 var(--gap-min);
-  margin-bottom: var(--gap-half-min);
-`
-
-export const Star = styled.img.attrs({ src: star })``
-
 export const Title = styled.dt`
-  color: var(--color-sesame);
+  color: var(--color-sasame);
   font-size: var(--size-med);
   padding: 0 var(--gap-min);
+  font-weight: bold;
 `

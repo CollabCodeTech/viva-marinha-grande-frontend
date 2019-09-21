@@ -1,7 +1,9 @@
 import React from 'react'
-import { Card, Photo, Value, Star, Title, WrapperStart } from './styles'
+import { Card, Photo, Title } from './styles'
 
 import coffee from '../../img/coffee.png'
+import WrapperStars from '../WrapperStars'
+import ServiceValue from '../ServiceValue'
 
 const CardService = ({ store: { value, stars, title } }) => (
   <Card>
@@ -9,13 +11,9 @@ const CardService = ({ store: { value, stars, title } }) => (
       <Photo src={coffee} alt="Placeholder" />
     </dd>
 
-    <Value>{[...Array(value)].map(() => '€')}</Value>
+    <ServiceValue value={value} />
 
-    <WrapperStart>
-      {[...Array(stars)].map((item, key) => (
-        <Star key={key} />
-      ))}
-    </WrapperStart>
+    <WrapperStars stars={stars} />
 
     <Title>{title}</Title>
   </Card>

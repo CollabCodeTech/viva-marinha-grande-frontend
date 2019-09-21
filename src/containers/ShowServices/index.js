@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Wrapper } from './styles'
 import CardService from '../../components/CardService'
@@ -18,7 +19,9 @@ const ShowServices = () => {
   return (
     <Wrapper>
       {stores.map(store => (
-        <CardService key={store._id} store={store} />
+        <Link to={`/details/${store._id}`}>
+          <CardService key={store._id} store={store} />
+        </Link>
       ))}
     </Wrapper>
   )
