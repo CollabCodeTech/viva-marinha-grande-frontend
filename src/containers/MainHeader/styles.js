@@ -36,13 +36,13 @@ export const Header = styled.header`
 
   & ${Button} {
     display: flex;
+    font-size: var(--size-half-med);
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
     height: 45px;
     max-width: 220px;
     min-width: 185px;
-    padding: 0 var(--gap-max);
   }
 
   @media (max-width: 1100px) {

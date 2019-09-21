@@ -3,7 +3,9 @@
   --color-titanium: #ededed;
   --color-tamarind: #979797;
   --color-sasame: #424242;
+  --color-light-sasame: rgba(66, 66, 66, 0.7);
   --color-kiwi: #37643d;
   --color-strawberry: #dc3632;
   --color-blueberry: #2cacd1;
+  --color-light-blueberry: rgba(44, 172, 209, 0.4);
 }

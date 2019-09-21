@@ -12,8 +12,18 @@ export const Wrapper = styled.article`
   justify-content: space-between;
   flex-wrap: wrap;
   background-color: var(--color-coconut);
-  ${container}
   padding: var(--gap-double-max);
+  ${container}
+
+  @media (max-width: 1210px) {
+    margin: 0;
+    padding: var(--gap-double-max) var(--gap-max);
+  }
+
+  @media (max-width: 710px) {
+    padding-left: var(--gap-med);
+    padding-right: var(--gap-med);
+  }
 `
 
 export const Header = styled.header`
@@ -33,6 +43,10 @@ export const Header = styled.header`
     width: 100%;
     margin-bottom: var(--gap-max);
   }
+
+  @media (max-width: 1090px) {
+    width: 100%;
+  }
 `
 
 export const Left = styled.div`
@@ -40,6 +54,12 @@ export const Left = styled.div`
   flex-direction: column;
   width: 70%;
   margin-right: var(--gap-max);
+
+  @media (max-width: 1090px) {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: var(--gap-double-max);
+  }
 `
 
 export const Right = styled.div`
@@ -54,10 +74,18 @@ export const Right = styled.div`
     height: 50px;
     margin-top: auto;
   }
+
+  @media (max-width: 1090px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+  }
 `
 
 export const Photo = styled.img`
   margin-bottom: var(--gap-double-max);
+  width: 100%;
 `
 
 export const Description = styled.p`
@@ -76,15 +104,44 @@ export const Now = styled.strong`
   margin-bottom: var(--gap-min);
 `
 
+export const WrapperWeekly = styled.section`
+  @media (max-width: 1090px) {
+    display: inline-flex;
+    flex-direction: column;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 35%;
+  }
+
+  @media (max-width: 870px) {
+    width: 42%;
+  }
+
+  @media (max-width: 710px) {
+    width: 100%;
+  }
+`
+
 export const Weekly = styled.ol`
   color: var(--color-tamarind);
   font-weight: bold;
   margin-bottom: var(--gap-max);
+
+  @media (max-width: 340px) {
+    font-size: var(--size-half-med);
+  }
 `
 
 export const Day = styled.li`
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: var(--gap-half-min);
+
+  &:nth-child(odd) {
+    background-color: var(--color-light-blueberry);
+    color: var(--color-light-sasame);
+  }
 `
 
 export const Schedule = styled.span`
@@ -102,10 +159,29 @@ export const Action = styled.a`
   color: var(--color-blueberry);
 `
 
+export const WrapperAddress = styled.section`
+  @media (max-width: 1090px) {
+    order: -1;
+    width: 62%;
+  }
+
+  @media (max-width: 870px) {
+    width: 55%;
+  }
+
+  @media (max-width: 710px) {
+    width: 100%;
+  }
+`
+
 export const Address = styled.address`
   color: var(--color-tamarind);
   font-weight: bold;
   margin-bottom: var(--gap-min);
+
+  @media (max-width: 1090px) {
+    width: 100%;
+  }
 `
 
 export const Street = styled.span`

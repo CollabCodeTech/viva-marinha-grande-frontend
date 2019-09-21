@@ -19,7 +19,9 @@ import {
   Map,
   Left,
   Header,
-  Right
+  Right,
+  WrapperAddress,
+  WrapperWeekly
 } from './styles'
 
 import cafe from '../../img/cafe.jpg'
@@ -42,44 +44,48 @@ const DetailsService = () => (
     </Left>
 
     <Right>
-      <Now>Aberto agora</Now>
-      <Weekly>
-        <Day>
-          Segunda <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
-        </Day>
-        <Day>
-          Terça <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
-        </Day>
-        <Day>
-          Quarta <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
-        </Day>
-        <Day>
-          Quinta <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
-        </Day>
-        <Day>
-          Sexta <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
-        </Day>
-        <Day>
-          Sábado <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
-        </Day>
-        <Day>
-          Domingo <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
-        </Day>
-        <Day>
-          Feriados <Schedule>Fechado</Schedule>
-        </Day>
-      </Weekly>
+      <WrapperWeekly>
+        <Now>Aberto agora</Now>
+        <Weekly>
+          <Day>
+            Segunda <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
+          </Day>
+          <Day>
+            Terça <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
+          </Day>
+          <Day>
+            Quarta <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
+          </Day>
+          <Day>
+            Quinta <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
+          </Day>
+          <Day>
+            Sexta <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
+          </Day>
+          <Day>
+            Sábado <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
+          </Day>
+          <Day>
+            Domingo <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
+          </Day>
+          <Day>
+            Feriados <Schedule>Fechado</Schedule>
+          </Day>
+        </Weekly>
 
-      <Site>
-        Site <Action>facebook.com/CafetariadArte.mg</Action>
-      </Site>
+        <Site>
+          Site <Action>facebook.com/CafetariadArte.mg</Action>
+        </Site>
+      </WrapperWeekly>
 
-      <Address>
-        Endereço
-        <Street>Praça Guilherme Stephens, 2430-241 M.nha Grande</Street>
-      </Address>
+      <WrapperAddress>
+        <Address>
+          Endereço
+          <Street>Praça Guilherme Stephens, 2430-241 M.nha Grande</Street>
+        </Address>
 
-      <Map />
+        <Map />
+      </WrapperAddress>
 
       <MainButton>Contato</MainButton>
     </Right>

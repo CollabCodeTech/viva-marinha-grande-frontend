@@ -1,6 +1,7 @@
 html,
 body {
   height: 100vh;
+  min-width: 290px;
 }
 body {
   background-color: var(--color-titanium);
