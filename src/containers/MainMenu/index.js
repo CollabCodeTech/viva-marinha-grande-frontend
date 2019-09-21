@@ -4,7 +4,7 @@ import { Navigation, Title, Actions } from './styles'
 import MainList from '../../components/MainList'
 import ClearButton from '../../components/ClearButton'
 
-const MainMenu = () => {
+const MainMenu = ({ active }) => {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const MainMenu = () => {
     setCategories(old => old.map(category => ({ ...category, active: false })))
 
   return (
-    <Navigation>
+    <Navigation active={active}>
       <Title>Guia de Serviços</Title>
 
       <MainList items={categories} onClick={toggleActive} />

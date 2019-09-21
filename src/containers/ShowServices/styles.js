@@ -4,7 +4,7 @@ import { Card } from '../../components/CardService/styles'
 export const Wrapper = styled.section`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 
   &::before {
     content: '';
