@@ -9,4 +9,5 @@ export const Icon = styled.img.attrs({ src: filter })`
   position: absolute;
   top: var(--gap-max);
   right: var(--gap-container);
+  opacity: 0.8;
 `

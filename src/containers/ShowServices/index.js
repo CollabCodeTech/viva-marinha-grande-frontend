@@ -8,7 +8,9 @@ const ShowServices = () => {
   const [stores, setStores] = useState([])
 
   const getStores = async () => {
-    const { data } = await axios.get('http://localhost:5000/service/overview')
+    const { data } = await axios.get(
+      'http://192.168.1.71:5000/service/overview'
+    )
     setStores(data)
   }
 

@@ -14,6 +14,10 @@ export const Main = styled.main`
     width: calc(100% - var(--gap-container) * 2);
     z-index: 1;
     padding-left: calc(var(--gap-container) + var(--gap-med));
+
+    @media (max-width: 540px) {
+      padding-left: var(--gap-container);
+    }
   }
 
   & ${Icon} {
@@ -28,7 +32,9 @@ export const Main = styled.main`
     position: fixed;
     top: calc(var(--size-header) + var(--gap-double-max));
     width: 18vw;
-    min-width: 300px;
+    min-width: 260px;
+    min-height: 720px;
+    overflow-y: scroll;
 
     @media (max-width: 1500px) {
       top: 0;
@@ -92,7 +98,7 @@ export const Main = styled.main`
 
     @media (max-width: 1500px) {
       width: 100%;
-      margin-left: var(--gap-double-max);
+      margin-left: var(--gap-container);
     }
   }
 `

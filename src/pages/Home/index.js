@@ -7,13 +7,19 @@ import ShowServices from '../../containers/ShowServices'
 const Home = () => {
   const [activeMenu, setActiveMenu] = useState(false)
 
-  const toggleActiveMenu = () => {
-    setActiveMenu(old => !old)
+  const openMenu = event => {
+    event.stopPropagation()
+    setActiveMenu(true)
+  }
+
+  const closeMenu = event => {
+    event.stopPropagation()
+    setActiveMenu(false)
   }
 
   return (
-    <Main activeMenu={activeMenu}>
-      <MainHeader onClick={toggleActiveMenu} />
+    <Main onClick={closeMenu} activeMenu={activeMenu}>
+      <MainHeader onClick={openMenu} />
       <MainMenu />
       <ShowServices />
     </Main>
