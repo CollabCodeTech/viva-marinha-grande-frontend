@@ -3,6 +3,8 @@ import { Navigation } from '../../containers/MainMenu/styles'
 import { Wrapper as Services } from '../../containers/ShowServices/styles'
 import { Header } from '../../containers/MainHeader/styles'
 import { Icon } from '../../components/IconFilter/styles'
+import { Icon as Close } from '../../components/IconClose/styles'
+import { Card } from '../../components/CardService/styles'
 
 export const Main = styled.main`
   display: flex;
@@ -109,6 +111,10 @@ export const Main = styled.main`
       &::after {
         display: none;
       }
+
+      & > ${Close} {
+        display: block;
+      }
     }
   }
 
@@ -122,6 +128,20 @@ export const Main = styled.main`
     @media (max-width: 1500px) {
       width: 100%;
       margin-left: var(--gap-container);
+    }
+
+    @media (max-width: 830px) {
+      padding-top: calc(var(--size-header) + var(--gap-double-max) + 70px);
+
+      &:before {
+        top: 120px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      & ${Card} {
+        margin-left: 0;
+      }
     }
   }
 `

@@ -94,6 +94,15 @@ export const Right = styled.div`
     justify-content: space-between;
     width: 100%;
   }
+
+  @media (max-width: 680px) {
+    & > ${Button} {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.4);
+    }
+  }
 `
 
 export const Photo = styled.img`

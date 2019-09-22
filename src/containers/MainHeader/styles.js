@@ -12,7 +12,11 @@ export const Header = styled.header`
   margin-bottom: var(--gap-double-max);
   background-color: var(--color-titanium);
 
-  & > ${Logo} {
+  & > a {
+    height: 100%;
+  }
+
+  & ${Logo} {
     display: flex;
     align-items: center;
     height: 100%;
@@ -57,6 +61,10 @@ export const Header = styled.header`
     height: 110px;
     position: relative;
     align-items: flex-start;
+
+    & > a {
+      height: auto;
+    }
 
     & ${Logo} {
       height: auto;

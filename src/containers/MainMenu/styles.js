@@ -14,6 +14,7 @@ export const Navigation = styled.nav`
     position: absolute;
     top: calc(var(--gap-med) / 2);
     right: calc(var(--gap-med) / 2);
+    display: none;
   }
 
   & ${Button} {
