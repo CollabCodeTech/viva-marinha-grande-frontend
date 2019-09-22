@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <Main onClick={closeMenu} activeMenu={activeMenu}>
       <MainHeader onClick={openMenu} />
-      <MainMenu />
+      <MainMenu onClick={closeMenu} />
       <ShowServices />
     </Main>
   )

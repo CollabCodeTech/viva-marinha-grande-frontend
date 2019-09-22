@@ -9,6 +9,26 @@ export const Main = styled.main`
   flex-wrap: wrap;
   justify-content: space-between;
 
+  &::after {
+    content: '';
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: var(--color-light-tamarind);
+    opacity: 0;
+    transition: opacity 180ms linear;
+  }
+
+  @media (max-width: 540px) {
+    &::after {
+      opacity: ${({ activeMenu }) => activeMenu && '0.8'};
+      z-index: ${({ activeMenu }) => activeMenu && '1'};
+    }
+  }
+
   & > ${Header} {
     position: fixed;
     width: calc(100% - var(--gap-container) * 2);
@@ -34,14 +54,13 @@ export const Main = styled.main`
     width: 18vw;
     min-width: 260px;
     min-height: 720px;
-    overflow-y: scroll;
 
     @media (max-width: 1500px) {
       top: 0;
       left: 0;
       height: 100vh;
       margin-left: 0;
-      z-index: 1;
+      z-index: 2;
       transform: translateX(-100%);
       transition: transform 200ms linear;
 
@@ -82,6 +101,10 @@ export const Main = styled.main`
       right: 0;
       transform: ${({ activeMenu }) =>
         activeMenu ? 'translateX(0)' : 'translateX(100%)'};
+
+      &:hover {
+        transform: translateX(100%);
+      }
 
       &::after {
         display: none;

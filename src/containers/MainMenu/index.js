@@ -3,8 +3,9 @@ import axios from 'axios'
 import { Navigation, Title, Actions } from './styles'
 import MainList from '../../components/MainList'
 import ClearButton from '../../components/ClearButton'
+import IconClose from '../../components/IconClose'
 
-const MainMenu = ({ active }) => {
+const MainMenu = ({ active, onClick }) => {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
@@ -31,6 +32,7 @@ const MainMenu = ({ active }) => {
   return (
     <Navigation active={active}>
       <Title>Guia de Serviços</Title>
+      <IconClose onClick={onClick} />
 
       <MainList items={categories} onClick={toggleActive} />
 

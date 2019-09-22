@@ -1,11 +1,20 @@
 import styled from 'styled-components'
 import { Button } from '../../components/ClearButton/styles'
+import { Icon as Close } from '../../components/IconClose/styles'
 
 export const Navigation = styled.nav`
+  position: relative;
   background-color: var(--color-coconut);
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
   margin-left: var(--gap-container);
-  padding: var(--gap-med) var(--gap-med) var(--gap-med);
+  padding: var(--gap-med);
+
+  & > ${Close} {
+    width: 35px;
+    position: absolute;
+    top: calc(var(--gap-med) / 2);
+    right: calc(var(--gap-med) / 2);
+  }
 
   & ${Button} {
     width: 140px;
