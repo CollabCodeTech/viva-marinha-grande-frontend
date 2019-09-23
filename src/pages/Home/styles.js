@@ -24,7 +24,7 @@ export const Main = styled.main`
     transition: opacity 180ms linear;
   }
 
-  @media (max-width: 540px) {
+  @media (max-width: 1500px) {
     &::after {
       opacity: ${({ activeMenu }) => activeMenu && '0.8'};
       z-index: ${({ activeMenu }) => activeMenu && '1'};
@@ -63,7 +63,8 @@ export const Main = styled.main`
       height: 100vh;
       margin-left: 0;
       z-index: 2;
-      transform: translateX(-100%);
+      transform: ${({ activeMenu }) =>
+        activeMenu ? 'translateX(0)' : 'translateX(-100%)'};
       transition: transform 200ms linear;
 
       &:hover {
