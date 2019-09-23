@@ -6,7 +6,7 @@ const MainSearch = () => (
   <Form>
     <Input />
     <Button>Buscar</Button>
-    <MainButton>Insira o seu negócio</MainButton>
+    <MainButton to="/service/new">Insira o seu negócio</MainButton>
   </Form>
 )
 

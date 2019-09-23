@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from './styles'
 
-const MainButton = ({ children }) => <Button>{children}</Button>
+const MainButton = ({ children, to }) => <Button to={to}>{children}</Button>
 
 export default MainButton

@@ -1,29 +1,16 @@
 import styled from 'styled-components'
-import { container } from '../../styles/tools/base'
 
 import map from '../../img/maps.png'
 import { Value } from '../../components/ServiceValue/styles'
 import { Wrapper as Stars } from '../../components/WrapperStars/styles'
 import { Title } from '../../components/MainTitle/styles'
 import { Button } from '../../components/MainButton/styles'
+import { Wrapper as WrapperCard } from '../../components/WrapperCard/styles'
 
-export const Wrapper = styled.article`
+export const Wrapper = styled(WrapperCard)`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  background-color: var(--color-coconut);
-  padding: var(--gap-double-max);
-  ${container}
-
-  @media (max-width: 1210px) {
-    margin: 0;
-    padding: var(--gap-double-max) var(--gap-max);
-  }
-
-  @media (max-width: 710px) {
-    padding-left: var(--gap-med);
-    padding-right: var(--gap-med);
-  }
 `
 
 export const Header = styled.header`

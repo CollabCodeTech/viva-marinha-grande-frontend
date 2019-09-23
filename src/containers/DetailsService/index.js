@@ -87,7 +87,7 @@ const DetailsService = () => (
         <Map />
       </WrapperAddress>
 
-      <MainButton>Contato</MainButton>
+      <MainButton to="/">Contato</MainButton>
     </Right>
   </Wrapper>
 )
