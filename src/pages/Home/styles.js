@@ -2,9 +2,10 @@ import styled from 'styled-components'
 import { Navigation } from '../../containers/MainMenu/styles'
 import { Wrapper as Services } from '../../containers/ShowServices/styles'
 import { Header } from '../../containers/MainHeader/styles'
-import { Icon } from '../../components/IconFilter/styles'
+import { Icon as Filter } from '../../components/IconFilter/styles'
 import { Icon as Close } from '../../components/IconClose/styles'
 import { Card } from '../../components/CardService/styles'
+import { Button as BtnSearch } from '../../components/MainSearch/styles'
 
 export const Main = styled.main`
   display: flex;
@@ -42,7 +43,13 @@ export const Main = styled.main`
     }
   }
 
-  & ${Icon} {
+  & ${BtnSearch} {
+    width: 45px;
+    height: 45px;
+    margin-right: var(--gap-max);
+  }
+
+  & ${Filter} {
     @media (max-width: 540px) {
       display: block;
     }

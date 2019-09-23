@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 import { Logo, Image } from '../../components/MainLogo/styles'
 import { Button } from '../../components/MainButton/styles'
-import { Form, Input } from '../../components/MainSearch/styles'
+import {
+  Form,
+  Input,
+  Button as BtnSearch
+} from '../../components/MainSearch/styles'
 
 export const Header = styled.header`
   display: flex;
@@ -34,8 +38,14 @@ export const Header = styled.header`
   }
 
   & ${Input} {
-    margin-right: var(--gap-double-max);
+    margin-right: var(--gap-min);
     flex-grow: 2;
+  }
+
+  & ${BtnSearch} {
+    width: 45px;
+    height: 45px;
+    margin-right: var(--gap-max);
   }
 
   & ${Button} {
@@ -54,6 +64,12 @@ export const Header = styled.header`
 
     & ${Input} {
       margin-right: var(--gap-max);
+    }
+  }
+
+  @media (max-width: 1050px) {
+    & ${BtnSearch} {
+      display: none;
     }
   }
 
