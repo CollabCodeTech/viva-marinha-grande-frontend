@@ -1,80 +1,86 @@
-import React from 'react'
+import React, { useState } from 'react'
+import axios from 'axios'
 import WrapperCard from '../../components/WrapperCard'
 import MainTitle from '../../components/MainTitle'
 import MainButton from '../../components/MainButton'
-import { Form, Label, Input, Legend, Fieldset } from './styles'
+import { Form, Legend, Fieldset } from './styles'
+import TextField from '../../components/TextField'
+import { Label } from '../../components/TextField/styles'
 
 const week = [
-  { id: 'monday', content: 'Segunda-feira' },
-  { id: 'tuesday', content: 'Terça-feira' },
-  { id: 'wednesday', content: 'Quarta-feira' },
-  { id: 'thursday', content: 'Quinta-feira' },
-  { id: 'friday', content: 'Sexta-feira' },
-  { id: 'saturday', content: 'Sábado' },
-  { id: 'sunday', content: 'Domingo' },
-  { id: 'holiday', content: 'Feriado' }
+  { name: 'monday', content: 'Segunda-feira' },
+  { name: 'tuesday', content: 'Terça-feira' },
+  { name: 'wednesday', content: 'Quarta-feira' },
+  { name: 'thursday', content: 'Quinta-feira' },
+  { name: 'friday', content: 'Sexta-feira' },
+  { name: 'saturday', content: 'Sábado' },
+  { name: 'sunday', content: 'Domingo' },
+  { name: 'holiday', content: 'Feriado' }
 ]
 
-const ServiceForm = () => (
-  <WrapperCard>
-    <MainTitle>Insira o serviço</MainTitle>
+const ServiceForm = () => {
+  const [service, setService] = useState({})
+  const send = async () => {
+    const ser = await axios.post('http://localhost:5000/service', service)
+    console.log(ser)
+  }
+  const change = ({ target: { name, value } }) => {
+    setService(old => ({ ...old, ...{ [name]: value } }))
+  }
 
-    <Form>
-      <Label>
-        Nome:
-        <Input name="name" type="text" />
-      </Label>
+  return (
+    <WrapperCard>
+      <MainTitle>Insira o serviço</MainTitle>
 
-      <Label>
-        Site:
-        <Input name="site" type="text" />
-      </Label>
+      <Form>
+        <TextField name="title" content="Nome:" onChange={change} />
 
-      <Fieldset>
-        <Legend>Horários</Legend>
+        <TextField name="site" content="Site:" onChange={change} />
 
-        {week.map(({ id, content }) => (
-          <Fieldset day>
-            <Label full>{content}:</Label>
-            <Label three>
-              Hora de abertura:
-              <Input id={id} name={id} type="text" />
-            </Label>
+        <Fieldset>
+          <Legend>Horários</Legend>
 
-            <Label three>
-              Hora de almoço:
-              <Input id={id} name={id} type="text" />
-            </Label>
+          {week.map(({ name, content }) => (
+            <Fieldset day key={content + name}>
+              <Label full>{content}:</Label>
 
-            <Label three>
-              Hora de encerramento:
-              <Input id={id} name={id} type="text" />
-            </Label>
-          </Fieldset>
-        ))}
-      </Fieldset>
+              <TextField
+                name={`${name}_open`}
+                content="Hora de abertura:"
+                three
+                onChange={change}
+              />
 
-      <Fieldset>
-        <Legend>Localização do negócio</Legend>
-        <Label>
-          Localização:
-          <Input name="address" type="text" />
-        </Label>
+              <TextField
+                name={`${name}_lunch`}
+                content="Hora de almoço:"
+                three
+                onChange={change}
+              />
 
-        <Label>
-          Distrito:
-          <Input name="district" type="text" />
-        </Label>
+              <TextField
+                name={`${name}_close`}
+                content="Hora de encerramento:"
+                three
+                onChange={change}
+              />
+            </Fieldset>
+          ))}
+        </Fieldset>
 
-        <Label>
-          Concelho:
-          <Input name="concelho" type="text" />
-        </Label>
-      </Fieldset>
+        <Fieldset>
+          <Legend>Localização do negócio</Legend>
+          <TextField name="address" content="Localização:" onChange={change} />
 
-      <MainButton>Inserir</MainButton>
-    </Form>
-  </WrapperCard>
-)
+          <TextField name="district" content="Distrito:" onChange={change} />
+
+          <TextField name="concelho" content="Concelho:" onChange={change} />
+        </Fieldset>
+
+        <MainButton onClick={send}>Inserir</MainButton>
+      </Form>
+    </WrapperCard>
+  )
+}
 
 export default ServiceForm
