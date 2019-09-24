@@ -5,7 +5,7 @@ export const Form = styled.form``
 
 export const Input = styled.input.attrs({
   type: 'search',
-  placeholder: 'Buscar negócio'
+  placeholder: 'Pesquisar negócio'
 })`
   height: 45px;
   width: 400px;

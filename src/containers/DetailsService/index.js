@@ -48,19 +48,19 @@ const DetailsService = () => (
         <Now>Aberto agora</Now>
         <Weekly>
           <Day>
-            Segunda <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
+            Segunda-feira <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
           </Day>
           <Day>
-            Terça <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
+            Terça-feira <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
           </Day>
           <Day>
-            Quarta <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
+            Quarta-feira <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
           </Day>
           <Day>
-            Quinta <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
+            Quinta-feira <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
           </Day>
           <Day>
-            Sexta <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
+            Sexta-feira <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
           </Day>
           <Day>
             Sábado <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
@@ -69,7 +69,7 @@ const DetailsService = () => (
             Domingo <Schedule>09:00 - 14:00 / 16:00 - 22:00</Schedule>
           </Day>
           <Day>
-            Feriados <Schedule>Fechado</Schedule>
+            Feriados <Schedule>Encerrado</Schedule>
           </Day>
         </Weekly>
 
@@ -80,7 +80,7 @@ const DetailsService = () => (
 
       <WrapperAddress>
         <Address>
-          Endereço
+          Localização
           <Street>Praça Guilherme Stephens, 2430-241 M.nha Grande</Street>
         </Address>
 
