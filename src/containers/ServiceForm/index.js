@@ -22,6 +22,8 @@ const ServiceForm = () => {
   const [service, setService] = useState({})
   const send = async () => {
     const ser = await axios.post('http://localhost:5000/service', service)
+    console.log(service)
+    console.table(service)
     console.log(ser)
   }
   const change = ({ target: { name, value } }) => {
@@ -46,21 +48,28 @@ const ServiceForm = () => {
 
               <TextField
                 name={`${name}_open`}
-                content="Hora de abertura:"
+                content="Abertura:"
                 three
                 onChange={change}
               />
 
               <TextField
-                name={`${name}_lunch`}
-                content="Hora de almoço:"
-                three
+                name={`${name}_pause_start`}
+                content="Início pausa:"
+                four
+                onChange={change}
+              />
+
+              <TextField
+                name={`${name}_pause_finish`}
+                content="Fim pausa:"
+                four
                 onChange={change}
               />
 
               <TextField
                 name={`${name}_close`}
-                content="Hora de encerramento:"
+                content="Encerramento:"
                 three
                 onChange={change}
               />

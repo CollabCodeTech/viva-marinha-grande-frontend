@@ -41,12 +41,30 @@ export const Label = styled.label`
     css`
       width: 31%;
 
+      @media (max-width: 610px) {
+        width: 28%;
+      }
+
       @media (max-width: 560px) {
         width: 100%;
 
         &:last-child {
           margin-bottom: var(--gap-max);
         }
+      }
+    `}
+  
+  ${({ four }) =>
+    four &&
+    css`
+      width: 18%;
+
+      @media (max-width: 610px) {
+        width: 21%;
+      }
+
+      @media (max-width: 560px) {
+        width: 48%;
       }
     `}
 `
