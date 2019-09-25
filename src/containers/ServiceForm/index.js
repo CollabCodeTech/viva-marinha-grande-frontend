@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import WrapperCard from '../../components/WrapperCard'
 import MainTitle from '../../components/MainTitle'
 import MainButton from '../../components/MainButton'
 import { Form, Legend, Fieldset } from './styles'
 import TextField from '../../components/TextField'
-import { Label } from '../../components/TextField/styles'
+import { Label } from '../../objects/Label'
+import SelectField from '../../components/SelectFiled'
 
 const week = [
   { name: 'monday', content: 'Segunda-feira' },
@@ -20,24 +21,33 @@ const week = [
 
 const ServiceForm = () => {
   const [service, setService] = useState({})
+  const [categories, setCategories] = useState([])
   const send = async () => {
     const ser = await axios.post('http://localhost:5000/service', service)
-    console.log(service)
-    console.table(service)
-    console.log(ser)
+    console.log('JSON', ser)
   }
   const change = ({ target: { name, value } }) => {
     setService(old => ({ ...old, ...{ [name]: value } }))
   }
 
+  const getAllCategories = async () => {
+    const res = await axios.get('http://localhost:5000/category')
+    setCategories(res.data)
+    console.log('EITA!!!', res.data)
+  }  
+
+  useEffect(() => getAllCategories(), [])
+
   return (
     <WrapperCard>
-      <MainTitle>Insira o serviço</MainTitle>
+      <MainTitle>Insira o seu negócio</MainTitle>
 
       <Form>
         <TextField name="title" content="Nome:" onChange={change} />
 
         <TextField name="site" content="Site:" onChange={change} />
+
+        <SelectField name="category" content="Categoria:" options={categories} onChange={change} />
 
         <Fieldset>
           <Legend>Horários</Legend>

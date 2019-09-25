@@ -4,7 +4,7 @@ import { Button } from '../../components/MainButton/styles'
 export const Legend = styled.legend`
   display: block;
   font-size: var(--size-max);
-  margin-top: var(--gap-med);
+  margin-top: var(--gap-double-max);
   margin-bottom: var(--gap-min);
 `
 

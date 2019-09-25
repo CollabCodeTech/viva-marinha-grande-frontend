@@ -1,5 +1,6 @@
 import React from 'react'
-import { Label, Input } from './styles'
+import { Label } from '../../objects/Label'
+import { Input } from '../../objects/Input'
 
 const TextField = ({
   content,

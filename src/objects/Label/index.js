@@ -1,21 +1,12 @@
-import styled, { css } from 'styled-components'
-
-export const Input = styled.input`
-  display: block;
-  box-sizing: border-box;
-  border-radius: 0;
-  width: 100%;
-  border: 1px solid var(--color-tamarind);
-  padding: var(--gap-min);
-  font-size: var(--size-med);
-  margin-bottom: var(--gap-max);
-  margin-top: var(--gap-half-min);
-`
+import styled, {css} from 'styled-components'
+import { Input } from '../Input'
 
 export const Label = styled.label`
   display: block;
   font-size: var(--size-med);
   transition: all 100ms linear;
+  margin-bottom: var(--gap-max);
+  
 
   &:focus-within {
     color: var(--color-blueberry);
@@ -32,8 +23,7 @@ export const Label = styled.label`
       text-transform: uppercase;
       color: var(--color-strawberry);
       font-weight: bold;
-      letter-spacing: 1.5px;
-      margin-bottom: var(--gap-half-min);
+      margin-bottom: var(--gap-min)
     `}
 
   ${({ three }) =>
