@@ -20,7 +20,7 @@ const week = [
 ]
 
 const ServiceForm = () => {
-  const [service, setService] = useState({})
+  const [service, setService] = useState({category: 'Alimentação'})
   const [categories, setCategories] = useState([])
   const send = async () => {
     const ser = await axios.post('http://localhost:5000/service', service)
@@ -30,13 +30,14 @@ const ServiceForm = () => {
     setService(old => ({ ...old, ...{ [name]: value } }))
   }
 
-  const getAllCategories = async () => {
-    const res = await axios.get('http://localhost:5000/category')
-    setCategories(res.data)
-    console.log('EITA!!!', res.data)
-  }  
 
-  useEffect(() => getAllCategories(), [])
+  useEffect(() => { async function getAllCategories () {
+      const res = await axios.get('http://localhost:5000/category')
+      setCategories(res.data)
+    }
+
+    getAllCategories()
+  }, [])
 
   return (
     <WrapperCard>
