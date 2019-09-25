@@ -7,6 +7,7 @@ import { Form, Legend, Fieldset } from './styles'
 import TextField from '../../components/TextField'
 import { Label } from '../../objects/Label'
 import SelectField from '../../components/SelectFiled'
+import TextareaField from '../../components/TextareaField'
 
 const week = [
   { name: 'monday', content: 'Segunda-feira' },
@@ -20,21 +21,18 @@ const week = [
 ]
 
 const ServiceForm = () => {
-  const [service, setService] = useState({category: 'Alimentação'})
+  const [service, setService] = useState({ category: 'Alimentação' })
   const [categories, setCategories] = useState([])
-  const send = async () => {
-    const ser = await axios.post('http://localhost:5000/service', service)
-    console.log('JSON', ser)
-  }
+  const send = async () =>
+    await axios.post('http://localhost:5000/service', service)
   const change = ({ target: { name, value } }) => {
     setService(old => ({ ...old, ...{ [name]: value } }))
   }
 
-
-  useEffect(() => { async function getAllCategories () {
+  useEffect(() => {
+    async function getAllCategories() {
       const res = await axios.get('http://localhost:5000/category')
       setCategories(res.data)
-      console.log(res.data)
     }
 
     getAllCategories()
@@ -49,7 +47,18 @@ const ServiceForm = () => {
 
         <TextField name="site" content="Site:" onChange={change} />
 
-        <SelectField name="category" content="Categoria:" options={categories} onChange={change} />
+        <SelectField
+          name="category"
+          content="Categoria:"
+          options={categories}
+          onChange={change}
+        />
+
+        <TextareaField
+          name="description"
+          content="Descrição:"
+          onChange={change}
+        />
 
         <Fieldset>
           <Legend>Horários</Legend>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 import MainTitle from '../../components/MainTitle'
 import WrapperStars from '../../components/WrapperStars'
@@ -110,6 +111,15 @@ const DetailsService = ({ id }) => {
     wednesday_pause_finish,
     wednesday_pause_start
   } = service
+
+  useEffect(() => {
+    async function getService() {
+      const res = await axios.get(`http://localhost:5000/service/${id}`)
+      setService(res.data)
+    }
+
+    getService()
+  })
 
   return (
     <Wrapper>

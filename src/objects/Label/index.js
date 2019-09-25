@@ -1,5 +1,7 @@
-import styled, {css} from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Input } from '../Input'
+import { Textarea } from '../Textarea'
+import { Select } from '../Select'
 
 export const Label = styled.label`
   display: block;
@@ -11,8 +13,10 @@ export const Label = styled.label`
   &:focus-within {
     color: var(--color-blueberry);
 
-    & > ${Input} {
-      border: 2px solid var(--color-blueberry);
+    & > ${Input},
+    & > ${Textarea},
+    & > ${Select} {
+      border: 3px solid var(--color-blueberry);
     }
   }
 
@@ -23,7 +27,7 @@ export const Label = styled.label`
       text-transform: uppercase;
       color: var(--color-strawberry);
       font-weight: bold;
-      margin-bottom: var(--gap-min)
+      margin-bottom: var(--gap-min);
     `}
 
   ${({ three }) =>
