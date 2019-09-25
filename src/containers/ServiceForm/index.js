@@ -34,6 +34,7 @@ const ServiceForm = () => {
   useEffect(() => { async function getAllCategories () {
       const res = await axios.get('http://localhost:5000/category')
       setCategories(res.data)
+      console.log(res.data)
     }
 
     getAllCategories()

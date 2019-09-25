@@ -3,11 +3,13 @@ import { Main } from './styles'
 import DetailsService from '../../containers/DetailsService'
 import MainHeader from '../../containers/MainHeader'
 
-const Details = ({ match: { params } }) => (
+const Details = ({ match: { params } }) => {
+  return (
   <Main>
     <MainHeader />
-    <DetailsService />
+    <DetailsService id={params.id} />
   </Main>
 )
+}
 
 export default Details
