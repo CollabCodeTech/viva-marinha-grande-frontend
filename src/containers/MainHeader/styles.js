@@ -74,7 +74,6 @@ export const Header = styled.header`
   }
 
   @media (max-width: 830px) {
-    height: 110px;
     position: relative;
     align-items: flex-start;
 

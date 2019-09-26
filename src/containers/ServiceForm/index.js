@@ -27,7 +27,7 @@ const ServiceForm = () => {
   })
   const [categories, setCategories] = useState([])
   const send = async () => {
-    await axios.post('http://localhost:5000/service', service)
+    await axios.post('http://localhost:5000/business', service)
   }
   const change = ({ target }) => {
     const { name, value } = target
@@ -95,6 +95,7 @@ const ServiceForm = () => {
                 content="Abertura:"
                 three
                 onChange={change}
+                type="time"
               />
 
               <TextField
@@ -103,6 +104,7 @@ const ServiceForm = () => {
                 content="Início pausa:"
                 four
                 onChange={change}
+                type="time"
               />
 
               <TextField
@@ -111,6 +113,7 @@ const ServiceForm = () => {
                 content="Fim pausa:"
                 four
                 onChange={change}
+                type="time"
               />
 
               <TextField
@@ -119,6 +122,7 @@ const ServiceForm = () => {
                 content="Encerramento:"
                 three
                 onChange={change}
+                type="time"
               />
             </Fieldset>
           ))}

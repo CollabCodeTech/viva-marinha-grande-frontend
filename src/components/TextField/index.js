@@ -8,14 +8,15 @@ const TextField = ({
   three = false,
   onChange,
   four = false,
-  dataNameDay
+  dataNameDay,
+  type = 'text'
 }) => (
   <Label three={three} four={four}>
     {content}
     <Input
       name={name}
       data-nameday={dataNameDay}
-      type="text"
+      type={type}
       onChange={onChange}
     />
   </Label>

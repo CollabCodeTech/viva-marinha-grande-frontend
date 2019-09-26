@@ -9,7 +9,7 @@ const ShowServices = () => {
 
   const getStores = async () => {
     const { data } = await axios.get(
-      'http://192.168.1.71:5000/service/overview'
+      'http://192.168.1.71:5000/business/overview'
     )
     setStores(data)
   }
