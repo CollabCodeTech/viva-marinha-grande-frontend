@@ -10,14 +10,14 @@ import SelectField from '../../components/SelectFiled'
 import TextareaField from '../../components/TextareaField'
 
 const baseWeek = [
-  { name: 'Segunda-feira' },
-  { name: 'Terça-feira' },
-  { name: 'Quarta-feira' },
-  { name: 'Quinta-feira' },
-  { name: 'Sexta-feira' },
-  { name: 'Sábado' },
-  { name: 'Domingo' },
-  { name: 'Feriado' }
+  { name: 'Segunda-feira', hours: {} },
+  { name: 'Terça-feira', hours: {} },
+  { name: 'Quarta-feira', hours: {} },
+  { name: 'Quinta-feira', hours: {} },
+  { name: 'Sexta-feira', hours: {} },
+  { name: 'Sábado', hours: {} },
+  { name: 'Domingo', hours: {} },
+  { name: 'Feriado', hours: {} }
 ]
 
 const ServiceForm = () => {

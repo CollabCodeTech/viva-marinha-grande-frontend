@@ -115,6 +115,16 @@ const DetailsService = ({ id }) => {
 
   const { title, description, week, site, address, district } = service
 
+  const printDay = day => {
+    try {
+      return day.hours.pause_start
+        ? `${day.hours.open} - ${day.hours.pause_start} / ${day.hours.pause_finish} - ${day.hours.close}`
+        : `${day.hours.open} - ${day.hours.close}`
+    } catch (error) {
+      return 'Fechado'
+    }
+  }
+
   useEffect(() => {
     async function getService() {
       const res = await axios.get(`http://localhost:5000/service/${id}`)
@@ -140,17 +150,12 @@ const DetailsService = ({ id }) => {
         <WrapperWeekly>
           <Now>Aberto agora</Now>
           <Weekly>
-            {week.map(
-              (
-                { name, hours: { open, close, pause_start, pause_finish } },
-                key
-              ) => (
-                <Day key={open + key}>
-                  {name}
-                  <Schedule>{`${open} - ${pause_start} / ${pause_finish} - ${close}`}</Schedule>
-                </Day>
-              )
-            )}
+            {week.map((day, key) => (
+              <Day key={day + key}>
+                {day.name}
+                <Schedule>{printDay(day)}</Schedule>
+              </Day>
+            ))}
           </Weekly>
 
           <Site>
