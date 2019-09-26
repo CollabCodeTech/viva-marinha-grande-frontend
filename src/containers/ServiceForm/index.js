@@ -9,24 +9,46 @@ import { Label } from '../../objects/Label'
 import SelectField from '../../components/SelectFiled'
 import TextareaField from '../../components/TextareaField'
 
-const week = [
-  { name: 'monday', content: 'Segunda-feira' },
-  { name: 'tuesday', content: 'Terça-feira' },
-  { name: 'wednesday', content: 'Quarta-feira' },
-  { name: 'thursday', content: 'Quinta-feira' },
-  { name: 'friday', content: 'Sexta-feira' },
-  { name: 'saturday', content: 'Sábado' },
-  { name: 'sunday', content: 'Domingo' },
-  { name: 'holiday', content: 'Feriado' }
+const baseWeek = [
+  { name: 'Segunda-feira' },
+  { name: 'Terça-feira' },
+  { name: 'Quarta-feira' },
+  { name: 'Quinta-feira' },
+  { name: 'Sexta-feira' },
+  { name: 'Sábado' },
+  { name: 'Domingo' },
+  { name: 'Feriado' }
 ]
 
 const ServiceForm = () => {
-  const [service, setService] = useState({ category: 'Alimentação' })
+  const [service, setService] = useState({
+    category: 'Alimentação',
+    week: baseWeek
+  })
   const [categories, setCategories] = useState([])
-  const send = async () =>
+  const send = async () => {
     await axios.post('http://localhost:5000/service', service)
-  const change = ({ target: { name, value } }) => {
-    setService(old => ({ ...old, ...{ [name]: value } }))
+  }
+  const change = ({ target }) => {
+    const { name, value } = target
+    const dataNameDay = target.getAttribute('data-nameDay')
+
+    setService(old => {
+      let { week } = old
+
+      if (dataNameDay) {
+        return {
+          ...old,
+          week: week.map(day =>
+            day.name === dataNameDay
+              ? { name: dataNameDay, hours: { ...day.hours, [name]: value } }
+              : day
+          )
+        }
+      }
+
+      return { ...old, ...{ [name]: value } }
+    })
   }
 
   useEffect(() => {
@@ -63,33 +85,37 @@ const ServiceForm = () => {
         <Fieldset>
           <Legend>Horários</Legend>
 
-          {week.map(({ name, content }) => (
-            <Fieldset day key={content + name}>
-              <Label full>{content}:</Label>
+          {baseWeek.map(({ name }, key) => (
+            <Fieldset day key={name + key}>
+              <Label full>{name}:</Label>
 
               <TextField
-                name={`${name}_open`}
+                dataNameDay={name}
+                name="open"
                 content="Abertura:"
                 three
                 onChange={change}
               />
 
               <TextField
-                name={`${name}_pause_start`}
+                dataNameDay={name}
+                name="pause_start"
                 content="Início pausa:"
                 four
                 onChange={change}
               />
 
               <TextField
-                name={`${name}_pause_finish`}
+                dataNameDay={name}
+                name="pause_finish"
                 content="Fim pausa:"
                 four
                 onChange={change}
               />
 
               <TextField
-                name={`${name}_close`}
+                dataNameDay={name}
+                name="close"
                 content="Encerramento:"
                 three
                 onChange={change}
@@ -107,7 +133,9 @@ const ServiceForm = () => {
           <TextField name="concelho" content="Concelho:" onChange={change} />
         </Fieldset>
 
-        <MainButton onClick={send}>Inserir</MainButton>
+        <MainButton to="/success" onClick={send}>
+          Inserir
+        </MainButton>
       </Form>
     </WrapperCard>
   )

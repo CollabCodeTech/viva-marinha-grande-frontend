@@ -11,7 +11,7 @@ const Success = () => (
     <WrapperCard>
       <MainTitle>Inserido o seu negócio com sucesso!</MainTitle>
       <Subtitle>
-        Por favor, aguardo a revisão dos administradores para que o seu negócio
+        Por favor, aguarde a revisão dos administradores para que o seu negócio
         apareça no nosso portal
       </Subtitle>
     </WrapperCard>
