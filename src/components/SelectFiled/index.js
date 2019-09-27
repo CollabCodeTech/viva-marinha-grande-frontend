@@ -7,8 +7,8 @@ const SelectField = ({ content, options, name, onChange }) => (
   <Label>
     {content}
     <Select name={name} onChange={onChange}>
-      {options.map(({ value, content }, key) => (
-        <Option key={value + key} value={value}>
+      {options.map(({ content }, key) => (
+        <Option key={content + key} value={content}>
           {content}
         </Option>
       ))}
