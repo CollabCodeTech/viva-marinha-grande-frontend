@@ -5,7 +5,7 @@ import coffee from '../../img/coffee.png'
 import WrapperStars from '../WrapperStars'
 import ServiceValue from '../ServiceValue'
 
-const CardService = ({ store: { value, stars, title } }) => (
+const CardService = ({ business: { value, stars, title } }) => (
   <Card>
     <dd>
       <Photo src={coffee} alt="Placeholder" />

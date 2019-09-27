@@ -5,7 +5,7 @@ import MainList from '../../components/MainList'
 import ClearButton from '../../components/ClearButton'
 import IconClose from '../../components/IconClose'
 
-const MainMenu = ({ active, closeMenu, openMenu }) => {
+const MainMenu = ({ active, closeMenu, openMenu, updateBusiness }) => {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
@@ -18,10 +18,33 @@ const MainMenu = ({ active, closeMenu, openMenu }) => {
     featchData()
   }, [])
 
-  const toggleActive = id => {
+  useEffect(() => {
+    const getServicesByActiveCategories = async () => {
+      const activeCategories = categories
+        .filter(category => category.active)
+        .map(category => category.content)
+
+      const { data } = await axios.get(
+        `http://localhost:5000/business/categories`,
+        {
+          params: {
+            categories: activeCategories
+          }
+        }
+      )
+
+      updateBusiness(data)
+    }
+
+    getServicesByActiveCategories()
+  }, [categories])
+
+  const toggleActive = content => {
     setCategories(old =>
-      old.map(service =>
-        service._id === id ? { ...service, active: !service.active } : service
+      old.map(category =>
+        category.content === content
+          ? { ...category, active: !category.active }
+          : category
       )
     )
   }
