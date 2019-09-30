@@ -8,6 +8,7 @@ import TextField from '../../components/TextField'
 import { Label } from '../../objects/Label'
 import SelectField from '../../components/SelectFiled'
 import TextareaField from '../../components/TextareaField'
+import InputFile from '../../components/InputFile'
 
 const baseWeek = [
   { name: 'Segunda-feira', hours: {} },
@@ -26,9 +27,18 @@ const ServiceForm = () => {
     week: baseWeek
   })
   const [categories, setCategories] = useState([])
+  const [photo, setPhoto] = useState()
+
   const send = async () => {
-    await axios.post('http://localhost:5000/business', service)
+    const {
+      data: { location }
+    } = await axios.post('http://localhost:5000/business/photo', photo)
+    await axios.post('http://localhost:5000/business', {
+      ...service,
+      photo: location
+    })
   }
+
   const change = ({ target }) => {
     const { name, value } = target
     const dataNameDay = target.getAttribute('data-nameDay')
@@ -49,6 +59,13 @@ const ServiceForm = () => {
 
       return { ...old, ...{ [name]: value } }
     })
+  }
+
+  const saveFile = event => {
+    const data = new FormData()
+    data.append('photo', event.target.files[0])
+
+    setPhoto(data)
   }
 
   useEffect(() => {
@@ -81,6 +98,8 @@ const ServiceForm = () => {
           content="Descrição:"
           onChange={change}
         />
+
+        <InputFile name="photo" content="Foto:" onChange={saveFile} />
 
         <Fieldset>
           <Legend>Horários</Legend>

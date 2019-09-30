@@ -7,7 +7,7 @@ const ShowServices = ({ business }) => (
   <Wrapper>
     {business.map(business => (
       <Link key={`link${business._id}`} to={`/details/${business._id}`}>
-        <CardService key={business._id} business={business} />
+        <CardService business={business} />
       </Link>
     ))}
   </Wrapper>

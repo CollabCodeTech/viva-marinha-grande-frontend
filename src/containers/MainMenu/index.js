@@ -10,7 +10,7 @@ const MainMenu = ({ active, closeMenu, openMenu, updateBusiness }) => {
 
   useEffect(() => {
     const featchData = async () => {
-      const res = await axios.get('http://192.168.1.71:5000/category')
+      const res = await axios.get('http://localhost:5000/category')
 
       setCategories(() => res.data)
     }
@@ -37,7 +37,7 @@ const MainMenu = ({ active, closeMenu, openMenu, updateBusiness }) => {
     }
 
     getServicesByActiveCategories()
-  }, [categories])
+  }, [categories, updateBusiness])
 
   const toggleActive = content => {
     setCategories(old =>

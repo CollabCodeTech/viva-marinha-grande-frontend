@@ -113,7 +113,7 @@ const DetailsService = ({ id }) => {
     ]
   })
 
-  const { title, description, week, site, address, district } = service
+  const { title, description, week, site, address, district, photo } = service
 
   const printDay = day => {
     try {
@@ -142,7 +142,7 @@ const DetailsService = ({ id }) => {
         <ServiceValue value={3} />
       </Header>
       <Left>
-        <Photo src={cafe} alt="Café" />
+        <Photo src={photo} alt="Café" />
         <Description>{description}</Description>
       </Left>
 

@@ -1,14 +1,13 @@
 import React from 'react'
 import { Card, Photo, Title } from './styles'
 
-import coffee from '../../img/coffee.png'
 import WrapperStars from '../WrapperStars'
 import ServiceValue from '../ServiceValue'
 
-const CardService = ({ business: { value, stars, title } }) => (
+const CardService = ({ business: { value, stars, title, photo } }) => (
   <Card>
     <dd>
-      <Photo src={coffee} alt="Placeholder" />
+      <Photo src={photo} alt="Placeholder" />
     </dd>
 
     <ServiceValue value={value} />
