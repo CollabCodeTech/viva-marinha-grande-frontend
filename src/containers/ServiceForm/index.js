@@ -28,12 +28,16 @@ const ServiceForm = () => {
   })
   const [categories, setCategories] = useState([])
   const [photo, setPhoto] = useState()
+  const { API } = process.env
 
   const send = async () => {
     const {
       data: { location }
-    } = await axios.post('http://localhost:5000/business/photo', photo)
-    await axios.post('http://localhost:5000/business', {
+    } = await axios.post(
+      `${API || 'http://localhost:5000'}/business/photo`,
+      photo
+    )
+    await axios.post(`${API || 'http://localhost:5000'}/business`, {
       ...service,
       photo: location
     })
@@ -70,12 +74,12 @@ const ServiceForm = () => {
 
   useEffect(() => {
     async function getAllCategories() {
-      const res = await axios.get('http://localhost:5000/category')
+      const res = await axios.get(`${API || 'http://localhost:5000'}/category`)
       setCategories(res.data)
     }
 
     getAllCategories()
-  }, [])
+  }, [API])
 
   return (
     <WrapperCard>

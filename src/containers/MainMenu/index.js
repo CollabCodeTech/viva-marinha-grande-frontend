@@ -9,8 +9,11 @@ const MainMenu = ({ active, closeMenu, openMenu, updateBusiness }) => {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
+    const { API } = process.env
     const featchData = async () => {
-      const res = await axios.get('http://localhost:5000/category')
+      const res = await axios.get(`${API || 'http://localhost:5000'}/category`)
+      console.log('URL', `${API || 'http://localhost:5000'}/category`)
+      console.log('category', res.data)
 
       setCategories(() => res.data)
     }
@@ -19,13 +22,15 @@ const MainMenu = ({ active, closeMenu, openMenu, updateBusiness }) => {
   }, [])
 
   useEffect(() => {
+    const { API } = process.env
+
     const getServicesByActiveCategories = async () => {
       const activeCategories = categories
         .filter(category => category.active)
         .map(category => category.content)
 
       const { data } = await axios.get(
-        `http://localhost:5000/business/categories`,
+        `${API || 'http://localhost:5000'}/business/categories`,
         {
           params: {
             categories: activeCategories

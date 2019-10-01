@@ -25,8 +25,6 @@ import {
   WrapperWeekly
 } from './styles'
 
-import cafe from '../../img/cafe.jpg'
-
 const DetailsService = ({ id }) => {
   const [service, setService] = useState({
     address: 'carregando...',
@@ -114,6 +112,7 @@ const DetailsService = ({ id }) => {
   })
 
   const { title, description, week, site, address, district, photo } = service
+  const { API } = process.env
 
   const printDay = day => {
     try {
@@ -127,7 +126,9 @@ const DetailsService = ({ id }) => {
 
   useEffect(() => {
     async function getService() {
-      const res = await axios.get(`http://localhost:5000/business/${id}`)
+      const res = await axios.get(
+        `${API || 'http://localhost:5000'}/business/${id}`
+      )
       setService(res.data)
     }
 
