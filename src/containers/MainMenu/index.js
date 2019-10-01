@@ -9,12 +9,10 @@ const MainMenu = ({ active, closeMenu, openMenu, updateBusiness }) => {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
-    const { API_HOST } = process.env
+    const { REACT_APP_API } = process.env
     const featchData = async () => {
-      const res = await axios.get(
-        `${API_HOST || 'http://localhost:5000'}/category`
-      )
-      console.log('URL', `${API_HOST || 'http://localhost:5000'}/category`)
+      const res = await axios.get(`${REACT_APP_API}/category`)
+      console.log('URL', `${REACT_APP_API}/category`)
       console.log('category', res.data)
 
       setCategories(() => res.data)
@@ -24,21 +22,18 @@ const MainMenu = ({ active, closeMenu, openMenu, updateBusiness }) => {
   }, [])
 
   useEffect(() => {
-    const { API } = process.env
+    const { REACT_APP_API } = process.env
 
     const getServicesByActiveCategories = async () => {
       const activeCategories = categories
         .filter(category => category.active)
         .map(category => category.content)
 
-      const { data } = await axios.get(
-        `${API || 'http://localhost:5000'}/business/categories`,
-        {
-          params: {
-            categories: activeCategories
-          }
+      const { data } = await axios.get(`${REACT_APP_API}/business/categories`, {
+        params: {
+          categories: activeCategories
         }
-      )
+      })
 
       updateBusiness(data)
     }

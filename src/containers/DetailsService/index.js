@@ -112,7 +112,7 @@ const DetailsService = ({ id }) => {
   })
 
   const { title, description, week, site, address, district, photo } = service
-  const { API } = process.env
+  const { REACT_APP_API } = process.env
 
   const printDay = day => {
     try {
@@ -126,9 +126,7 @@ const DetailsService = ({ id }) => {
 
   useEffect(() => {
     async function getService() {
-      const res = await axios.get(
-        `${API || 'http://localhost:5000'}/business/${id}`
-      )
+      const res = await axios.get(`${REACT_APP_API}/business/${id}`)
       setService(res.data)
     }
 
